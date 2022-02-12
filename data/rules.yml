@@ -1,0 +1,64 @@
+version: "2.0"
+rules:
+- rule: Greet and level
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choose_mode
+- rule: restart for /restart
+  steps:
+  - intent: restart
+  - action: action_restart
+  - action: utter_greet
+- rule: go back to menue
+  steps:
+  - intent: back_to_menue
+  - action: utter_choose_mode
+- rule: say bye
+  steps:
+  - intent: bye
+  - action: utter_bye
+  - action: action_restart
+- rule: Say ur welcome
+  steps:
+  - intent: Thanks
+  - action: utter_you're_welcome
+- rule: getting_started_block
+  steps:
+  - intent: getting_started_beginner
+  - action: utter_getting_started
+  - action: sleep_function
+  - action: utter_getting_started2
+  - action: sleep_function
+  - action: utter_getting_started3
+- rule: cleanup_block
+  steps:
+  - intent: cleanup_beginner
+  - action: utter_cleanup
+  - action: sleep_function
+  - action: utter_cleanup2
+- rule: visalization_block_1
+  steps: 
+  - intent: visualization_beginner
+  - action: utter_visualizations
+  - action: sleep_function
+  - action: utter_visualizations2
+- rule: analysis_block
+  steps:
+  - intent: analysis_beginner
+  - action: utter_analysis_position
+  - action: sleep_function
+  - action: utter_analysis_position2
+  - action: sleep_function
+  - action: utter_analysis_position3
+- rule: hands_on_block
+  steps:
+  - intent: hands-on
+  - action: utter_analysis_hands_on
+  - action: utter_analysis_hands_on2
+  - action: sleep_function
+  - action: utter_analysis_hands_on3
+- rule: fallback
+  steps: 
+  - intent: nlu_fallback
+  - action: utter_fall_back

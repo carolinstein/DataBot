@@ -1,0 +1,246 @@
+2021-07-30 01:11:02,835 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 01:11:02,891 [INFO ]  Loading model models/20210729-211727.tar.gz...
+2021-07-30 01:11:08,228 [INFO ]  Loading model models/20210729-211727.tar.gz...
+2021-07-30 01:11:41,444 [INFO ]  Rasa server is up and running.
+2021-07-30 01:14:43,450 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 101, in receive
+    sender_id = await self._extract_sender(request)
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 52, in _extract_sender
+    return req.json.get("sender", None)
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-07-30 01:15:04,495 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 101, in receive
+    sender_id = await self._extract_sender(request)
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 52, in _extract_sender
+    return req.json.get("sender", None)
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-07-30 01:16:47,020 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 101, in receive
+    sender_id = await self._extract_sender(request)
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 52, in _extract_sender
+    return req.json.get("sender", None)
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-07-30 01:22:43,509 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 101, in receive
+    sender_id = await self._extract_sender(request)
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/rest.py", line 52, in _extract_sender
+    return req.json.get("sender", None)
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-07-30 01:40:57,433 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 01:40:57,467 [INFO ]  Loading model models/20210729-211727.tar.gz...
+2021-07-30 01:41:01,974 [INFO ]  Loading model models/20210729-211727.tar.gz...
+2021-07-30 01:41:31,388 [INFO ]  Rasa server is up and running.
+2021-07-30 01:41:31,939 [ERROR]  Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<configure_app.<locals>.run_cmdline_io() done, defined at /opt/venv/lib/python3.8/site-packages/rasa/core/run.py:131> exception=PermissionError(1, 'Operation not permitted')>
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/run.py", line 135, in run_cmdline_io
+    await console.record_messages(
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/console.py", line 172, in record_messages
+    text = get_user_input(previous_response)
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/console.py", line 105, in get_user_input
+    response = questionary.text(
+  File "/opt/venv/lib/python3.8/site-packages/questionary/question.py", line 70, in ask
+    return self.unsafe_ask(patch_stdout)
+  File "/opt/venv/lib/python3.8/site-packages/questionary/question.py", line 92, in unsafe_ask
+    return self.application.run()
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/application/application.py", line 736, in run
+    return run()
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/application/application.py", line 710, in run
+    return f.result()
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/eventloop/future.py", line 151, in result
+    raise self._exception
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/eventloop/coroutine.py", line 92, in step_next
+    new_f = coroutine.throw(exc)
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/application/application.py", line 685, in _run_async2
+    result = yield f
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/eventloop/coroutine.py", line 88, in step_next
+    new_f = coroutine.send(None)
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/application/application.py", line 625, in _run_async
+    with self.input.attach(read_from_input):
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/input/vt100.py", line 150, in _attached_input
+    loop.add_reader(fd, callback)
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/eventloop/posix.py", line 273, in add_reader
+    self.selector.register(fd)
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/eventloop/select.py", line 78, in register
+    sel.register(fd)
+  File "/opt/venv/lib/python3.8/site-packages/prompt_toolkit/eventloop/select.py", line 133, in register
+    self._sel.register(fd, selectors.EVENT_READ, None)
+  File "/usr/lib/python3.8/selectors.py", line 359, in register
+    self._selector.register(key.fd, poller_events)
+PermissionError: [Errno 1] Operation not permitted
+2021-07-30 22:54:37,019 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 22:54:38,079 [INFO ]  Rasa server is up and running.
+2021-07-30 22:57:37,037 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 22:57:37,902 [INFO ]  Rasa server is up and running.
+2021-07-30 23:00:08,566 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 23:00:09,474 [INFO ]  Rasa server is up and running.
+2021-07-30 23:00:09,779 [ERROR]  Exception occurred while handling uri: 'http://a18dad6cfcb4.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:00:12,044 [ERROR]  Exception occurred while handling uri: 'http://a18dad6cfcb4.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:00:16,308 [ERROR]  Exception occurred while handling uri: 'http://a18dad6cfcb4.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:00:24,551 [ERROR]  Exception occurred while handling uri: 'http://a18dad6cfcb4.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:00:40,832 [ERROR]  Exception occurred while handling uri: 'http://a18dad6cfcb4.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:01:13,095 [ERROR]  Exception occurred while handling uri: 'http://a18dad6cfcb4.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:03:55,793 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 23:03:56,689 [INFO ]  Rasa server is up and running.
+2021-07-30 23:05:48,758 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 23:05:49,618 [INFO ]  Rasa server is up and running.
+2021-07-30 23:06:33,389 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 23:06:34,282 [INFO ]  Rasa server is up and running.
+2021-07-30 23:06:36,347 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:06:40,613 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:06:48,844 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:07:05,190 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:07:37,456 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:08:38,085 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:09:38,399 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:10:31,400 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 23:10:32,279 [INFO ]  Rasa server is up and running.
+2021-07-30 23:10:38,672 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:55:47,843 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-07-30 23:55:47,863 [INFO ]  Loading model models/20210731-015453.tar.gz...
+2021-07-30 23:55:50,204 [INFO ]  Loading model models/20210731-015453.tar.gz...
+2021-07-30 23:56:28,625 [INFO ]  Rasa server is up and running.
+2021-07-30 23:57:17,028 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'
+2021-07-30 23:58:17,351 [ERROR]  Exception occurred while handling uri: 'http://5dfe5898ba0b.ngrok.io/webhooks/telegram/webhook'
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.8/site-packages/sanic/app.py", line 973, in handle_request
+    response = await response
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 228, in message
+    if self._is_user_message(msg):
+  File "/opt/venv/lib/python3.8/site-packages/rasa/core/channels/telegram.py", line 180, in _is_user_message
+    return message.text is not None
+AttributeError: 'NoneType' object has no attribute 'text'

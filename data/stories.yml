@@ -1,0 +1,488 @@
+version: "2.0"
+stories:
+- story: Start_DA_Process
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choose_mode
+  - intent: Data_Analysis_Process
+  - checkpoint: check_DA
+- story: Start_Q&A
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_choose_mode
+  - intent: Question&Answer
+  - checkpoint: check_Q&A
+- story: menue_beginner
+  steps:
+  - checkpoint: check_DA
+  - action: utter_menue_beginner
+  - checkpoint: menue_beginner
+- story: getting_started_beginners_happy_path
+  steps:
+  - checkpoint: menue_beginner
+  - intent: getting_started_beginner
+  - action: utter_getting_started
+  - action: sleep_function
+  - action: utter_getting_started2
+  - action: sleep_function
+  - action: utter_getting_started3
+  - or:
+    - intent: more_info
+    - intent: variable_types
+  - action: utter_getting_started_more_help
+  - action: utter_getting_started_more_help2
+  - intent: affirm
+  - action: utter_getting_started_hints
+  - action: sleep_function
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: getting_started_beginners
+  steps:
+  - checkpoint: menue_beginner
+  - intent: getting_started_beginner
+  - action: utter_getting_started
+  - action: sleep_function
+  - action: utter_getting_started2
+  - action: sleep_function
+  - action: utter_getting_started3
+  - or:
+    - intent: affirm
+    - intent: deny
+  - action: utter_getting_started_hints
+  - action: sleep_function
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: beginner_cleanup
+  steps:
+  - checkpoint: menue_beginner
+  - intent: cleanup_beginner
+  - action: utter_cleanup
+  - action: sleep_function
+  - action: utter_cleanup2
+  - intent: affirm
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: beginner_visualizations_happy_path
+  steps:
+  - checkpoint: menue_beginner
+  - intent: visualization_beginner
+  - action: utter_visualizations
+  - action: sleep_function
+  - action: utter_visualizations2
+  - or:
+    - intent: plotting_two_variables
+    - intent: first
+  - action: utter_visualizations_two_variables
+  - intent: affirm
+  - action: utter_visualizations_warning
+  - action: sleep_function
+  - action: utter_visualizations_warning2
+  - action: sleep_function
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: beginner_visualizations_unhappy_path
+  steps:
+  - checkpoint: menue_beginner
+  - intent: visualization_beginner
+  - action: utter_visualizations
+  - action: sleep_function
+  - action: utter_visualizations2
+  - or:
+    - intent: second
+    - intent: interpreting_plots
+  - action: utter_visualizations_warning
+  - action: sleep_function
+  - action: utter_visualizations_warning2
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: beginner_analysis_first_half_happy_path
+  steps:
+  - checkpoint: menue_beginner
+  - intent: analysis_beginner
+  - action: utter_analysis_position
+  - action: sleep_function
+  - action: utter_analysis_position2
+  - action: sleep_function
+  - action: utter_analysis_position3
+  - or:
+    - intent: affirm
+    - intent: more_info
+  - action: utter_analysis_position_help
+  - intent: affirm
+  - action: utter_b_pp_3
+  - action: sleep_function
+  - action: utter_b_pp_3_2
+  - checkpoint: checkpoint_analysis_story
+- story: beginner_analysis_first_half_unhappy_path
+  steps:
+  - checkpoint: menue_beginner
+  - intent: analysis_beginner
+  - action: utter_analysis_position
+  - action: sleep_function
+  - action: utter_analysis_position2
+  - action: sleep_function
+  - action: utter_analysis_position3
+  - intent: deny
+  - action: utter_b_pp_3
+  - action: sleep_function
+  - action: utter_b_pp_3_2
+  - checkpoint: checkpoint_analysis_story
+- story: beginner_analysis_second_half_descriptive
+  steps:
+  - checkpoint: checkpoint_analysis_story
+  - or:
+    - intent: first
+    - intent: hands-on
+    - intent: influence
+  - action: utter_analysis_hands_on
+  - action: utter_analysis_hands_on2
+  - action: sleep_function
+  - action: utter_analysis_hands_on3
+  - intent: affirm
+  - action: utter_interpretation
+  - action: sleep_function
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: beginner_analysis_second_half_unhappy
+  steps:
+  - checkpoint: checkpoint_analysis_story
+  - intent: deny
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: beginner_analysis_second_half_sound_tests
+  steps:
+  - checkpoint: checkpoint_analysis_story
+  - or:
+    - intent: second
+    - intent: statistical_test
+  - action: utter_b_pp_4
+  - intent: affirm
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: form_happy_path
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: other_questions
+  - action: utter_form
+  - intent: affirm
+  - action: question_form
+  - active_loop: question_form
+  - slot_was_set:
+    - question: How can I define a regression model?
+  - slot_was_set:
+    - email: hannah123@web.de
+  - active_loop: null
+  - action: action_submit_questions
+  - action: action_reset_slot
+  - action: utter_choose_mode
+- story: form_unhappy_path
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: other_questions
+  - action: utter_form
+  - intent: deny
+  - action: utter_no_question
+  - action: utter_choose_mode
+- story: User aborts form before question
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: other_questions
+  - action: utter_form
+  - intent: affirm
+  - action: question_form
+  - active_loop: question_form
+  - or:
+    - intent: stop
+    - intent: deny
+    - intent: other
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_no_question
+  - action: action_reset_slot
+  - action: utter_choose_mode
+- story: User aborts form after question
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: other_questions
+  - action: utter_form
+  - intent: affirm
+  - action: question_form
+  - active_loop: question_form
+  - slot_was_set:
+    - question: How can I define a regression model?
+  - or:
+    - intent: stop
+    - intent: deny
+    - intent: other
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_no_question
+  - action: action_reset_slot
+  - action: utter_choose_mode
+- story: User asks what a binary variable is
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: binary
+  - action: utter_binary
+- story: User asks what the variance is
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: variance
+  - action: utter_variance
+- story: User asks about the titanic
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: titanic
+  - action: utter_titanic
+- story: User asks about the mean
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: mean
+  - action: utter_mean
+- story: User asks about the median
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: median
+  - action: utter_median
+- story: User asks about an observation
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: observation
+  - action: utter_observation
+- story: User asks about a variable
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: variable
+  - action: utter_variable
+- story: Story from Conversation ID eefaaa192f9f4f04b926dd049eb074b9
+  steps:
+  - intent: other_questions
+  - action: utter_form
+  - intent: deny
+  - action: utter_no_question
+  - action: utter_choose_mode
+- story: reinforcement_questions
+  steps:
+  - intent: other_questions
+  - action: utter_form
+  - intent: affirm
+  - action: question_form
+  - active_loop: question_form
+  - slot_was_set:
+    - question: How can I define a regression model?
+  - slot_was_set:
+    - email: hannah123@web.de
+  - active_loop: null
+  - action: action_submit_questions
+  - action: action_reset_slot
+  - action: utter_choose_mode
+- story: unforseen_deny
+  steps:
+  - intent: deny
+  - action: utter_choose_mode
+- story: unforseen_affirm
+  steps:
+  - intent: affirm
+  - action: utter_choose_mode
+- story: user_asks_question_about_dataset
+  steps:
+  - intent: dataset_questions
+  - action: utter_explain_method_of_operation
+  - action: utter_choose_mode
+- story: User asks about interpreting plots
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: interpreting_plots
+  - action: utter_interpret_plots
+- story: User asks about pie charts
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: pie_chart
+  - action: utter_pie_chart
+- story: User asks about scatter_plots
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: scatter_plot
+  - action: utter_scatter_plot
+- story: other
+  steps:
+  - intent: other
+  - action: utter_fall_back
+- story: user asks for typical value
+  steps:
+  - intent: typical_price
+  - action: utter_mean
+  - action: utter_median
+- story: influence
+  steps:
+  - intent: influence
+  - action: utter_analysis_hands_on
+  - action: utter_analysis_hands_on2
+  - action: sleep_function
+  - action: utter_analysis_hands_on3
+  - intent: affirm
+  - action: utter_interpretation
+  - action: sleep_function
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: User asks what a binary variable is
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: binary
+  - action: utter_binary
+- story: User asks what the variance is
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: variance
+  - action: utter_variance
+- story: User asks about the titanic
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: titanic
+  - action: utter_titanic
+- story: User asks about the mean
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: mean
+  - action: utter_mean
+- story: User asks about the median
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: median
+  - action: utter_median
+- story: User asks about an observation
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: observation
+  - action: utter_observation
+- story: User asks about a variable
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: variable
+  - action: utter_variable
+- story: Story from Conversation ID eefaaa192f9f4f04b926dd049eb074b9
+  steps:
+  - intent: other_questions
+  - action: utter_form
+  - intent: deny
+  - action: utter_no_question
+  - action: utter_choose_mode
+- story: reinforcement_questions
+  steps:
+  - intent: other_questions
+  - action: utter_form
+  - intent: affirm
+  - action: question_form
+  - active_loop: question_form
+  - slot_was_set:
+    - question: How can I define a regression model?
+  - slot_was_set:
+    - email: hannah123@web.de
+  - active_loop: null
+  - action: action_submit_questions
+  - action: action_reset_slot
+  - action: utter_choose_mode
+- story: unforseen_deny
+  steps:
+  - intent: deny
+  - action: utter_choose_mode
+- story: unforseen_affirm
+  steps:
+  - intent: affirm
+  - action: utter_choose_mode
+- story: user_asks_question_about_dataset
+  steps:
+  - intent: dataset_questions
+  - action: utter_explain_method_of_operation
+  - action: utter_choose_mode
+- story: User asks about interpreting plots
+  steps:
+  - checkpoint: check_Q&A
+  - action: utter_please_ask
+  - intent: interpreting_plots
+  - action: utter_interpret_plots
+- story: User asks about pie charts2
+  steps:
+  - intent: pie_chart
+  - action: utter_pie_chart
+- story: User asks about scatter_plots2
+  steps:
+  - intent: scatter_plot
+  - action: utter_scatter_plot
+- story: statistical test
+  steps:
+  - intent: statistical_test
+  - action: utter_b_pp_4
+  - intent: affirm
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: User asks what a binary variable is2
+  steps:
+  - intent: binary
+  - action: utter_binary
+- story: User asks what the variance is2
+  steps:
+  - intent: variance
+  - action: utter_variance
+- story: User asks about the titanic2
+  steps:
+  - intent: titanic
+  - action: utter_titanic
+- story: User asks about the mean2
+  steps:
+  - intent: mean
+  - action: utter_mean
+- story: User asks about the median2
+  steps:
+  - intent: median
+  - action: utter_median
+- story: User asks about an observation2
+  steps:
+  - intent: observation
+  - action: utter_observation
+- story: User asks about a variable2
+  steps:
+  - intent: variable
+  - action: utter_variable
+- story: User asks about interpreting plots2
+  steps:
+  - intent: interpreting_plots
+  - action: utter_interpret_plots
+- story: Variable Types
+  steps:
+  - intent: variable_types
+  - action: utter_getting_started_more_help
+  - action: utter_getting_started_more_help2
+  - intent: affirm
+  - action: utter_getting_started_hints
+  - action: sleep_function
+  - action: utter_next_step
+  - action: utter_menue_beginner
+- story: Story from Conversation ID ca37e7a288dc4717be7c19bcc0ab38c7
+  steps:
+  - intent: start
+  - action: utter_greet
+  - action: utter_choose_mode

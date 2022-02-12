@@ -1,0 +1,375 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- Data_Analysis_Process:
+    use_entities: true
+- greet:
+    use_entities: true
+- cleanup_beginner:
+    use_entities: true
+- affirm:
+    use_entities: true
+- analysis_beginner:
+    use_entities: true
+- quantative:
+    use_entities: true
+- getting_started_beginner:
+    use_entities: true
+- Question&Answer:
+    use_entities: true
+- deny:
+    use_entities: true
+- visualization_beginner:
+    use_entities: true
+- restart:
+    use_entities: true
+- more_info:
+    use_entities: true
+- bye:
+    use_entities: true
+- first:
+    use_entities: true
+- second:
+    use_entities: true
+- back_to_menue:
+    use_entities: true
+- other:
+    use_entities: true
+- variance:
+    use_entities: true
+- categorial:
+    use_entities: true
+- binary:
+    use_entities: true
+- quantitative:
+    use_entities: true
+- other_questions:
+    use_entities: true
+- email:
+    use_entities: true
+- stop:
+    use_entities: true
+- test:
+    use_entities: true
+- Thanks:
+    use_entities: true
+- titanic:
+    use_entities: true
+- mean:
+    use_entities: true
+- median:
+    use_entities: true
+- observation:
+    use_entities: true
+- variable:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- dataset_questions:
+    use_entities: true
+- interpreting_plots:
+    use_entities: true
+- scatter_plot:
+    use_entities: true
+- pie_chart:
+    use_entities: true
+- hands-on:
+    use_entities: true
+- statistical_test:
+    use_entities: true
+- variable_types:
+    use_entities: true
+- influence:
+    use_entities: true
+- typical_price:
+    use_entities: true
+- plotting_two_variables:
+    use_entities: true
+- start:
+    use_entities: true
+entities: []
+slots:
+  question:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: "Welcome, I'm Databot and I'm here to help you with your statistical analysis of research data. (Code: 412)"
+  utter_choose_mode:
+  - buttons:
+    - payload: /Data_Analysis_Process
+      title: Start DA Process
+    - payload: /Question&Answer
+      title: Q&A
+    text: 'I have to modes: In Start DA process I navigate you through a complete data analysis of your dataset, giving you advice on what to do and to look out for. If you need less guidance you can use the Q&A mode, where I try to answer your specific questions regarding theory and methods in statistics. What do you want to do?'
+  utter_menue_beginner:
+  - button_type: vertical
+    buttons:
+    - payload: /getting_started_beginner
+      title: Getting started
+    - payload: /cleanup_beginner
+      title: Cleanup
+    - payload: /analysis_beginner
+      title: Data Analysis
+    - payload: /visualization_beginner
+      title: Visualization
+    text: The data analysis process looks as follows. Please select what you want to do.
+  utter_getting_started:
+  - text: |
+      Getting started: Please look at the dataset you want to analyse.
+
+      Before diving into calculations familiarize yourself with the dataset. Go through the collumns and check out what data you have.
+  utter_getting_started2:
+  - text: |
+      A few ideas are:
+        - Check for an ID: Is there a unique identifier for every record? How many unique records do you have?
+        - Check the types of variables that you have: categorial data (meaning categories like colour: red, green, blue) or quantitative data (meaning numbers like age: 12, 42, 50?)
+        - Is your dataset complete or does it depict a sample?
+  utter_getting_started3:
+  - text: |-
+      Please start familiarizing yourself with the dataset now.
+
+      Let me know when you're finished, then we can proceed or tell me if you need more help with the variable types.
+  utter_getting_started_more_help2:
+  - text: |
+      If you prefer more info you can also check out this website: https://builtin.com/data-science/data-types-statistics
+
+      Let me know when you want to proceed.
+  utter_getting_started_more_help:
+  - image: https://www.dropbox.com/s/z5oz4dgpg03nemp/Bildschirmfoto%202021-11-07%20um%2013.47.23.png?dl=0
+    text: This picture presents a good overview about the different types of variables. (source towardsdatascience)
+  utter_getting_started_hints:
+  - text: |
+      I assume you have looked at the dataset?  
+
+      A few common mistakes before we continue:
+        - Categorial data can also be numbers: Imagine your measuring happiness on a scale from 0 to 10. The values are numbers but they symbolize a category.
+        - Understanding how data was measured can be difficult: Some data might be binary coded (e.g. 0 = no, 1 = yes); in other cases 0 stands for NULL meaning no recorded data. If in doubt check for a legend, explaining the measurement.
+  utter_cleanup:
+  - text: |-
+      Cleaning up a dataset is not the most fun part BUT it is important. Imagine a cook not checking whether his ingredients are still good. 
+      Would you like to eat a meal out of rotton food? So let's clean our data!
+
+      Cleaning data means making sure it is valuable to use. Therefore you should remove low quality records. A few ideas are:
+            - Check for duplicate records
+            - Check for unreliable, suspicious records (e.g. the data type doesn't fit the question, the answer doesn't make any sense)
+            - Check for outliers: observations that differ significantly from most other observations for this variable
+            - Check if data is missing: If so, you do not need to remove this record, just keep it in mind when later interpreting results.
+  utter_cleanup2:
+  - text: I hope this is a starting point for you, please clean your data now. Let me now when you're finished, then we can proceed.
+  utter_visualizations:
+  - text: |-
+      Visualizing data can help you to better understand your data or depict your results.
+      There are different types of plots depending on the type of data. 
+      You want to visualize
+
+            - 1 categorial variable? Use a bar chart or a pie chart.
+            -  1 quantitative variable? Use a scatter plot for example. A boxplot is also helpful plot, but more difficult.
+  utter_visualizations2:
+  - text: Are you interested in plotting two variables against each other or should we continue with what to look out for in plots?
+  utter_visualizations_two_variables:
+  - text: |-
+      Plotting two varibles is a little bit trickier. If you want to visualize...
+
+            - two categorial variables, check out the Stacked Collumn Chart. 
+            - two quantitative variables, you can again use a scatter plot.
+            - one quantiative and one categorial variable, again a scatter plot works.
+
+      There are also plot types if you want to plot more than 2 variables against each other (e.g. heat maps). However, I would not recommend using them as they are difficult to create to read. 
+
+      I hope this helped, let me know when you want to continue.
+  utter_visualizations_warning:
+  - text: |
+      I hope you found the correct plot type for your purpose. A few words to keep in mind when creating or checking out a plot:
+      Plots can convey very different impressions depending on how they are designed, therefore
+
+            - Always label the axis correctly and add a legend in case you use a colour coding for other people to understand your plot. Plots in articles or the media missing these descriptions are probably not very trustworthy.
+            - The zero point of the image should always be at 0, otherwise the image will be very distorted. 
+            - Add the number of observations n contained in the plot e.g. in the heading. Imagine a pie chart - It's has a very different meaning if 50% of 500 people have a certain opinion or 50% of four people. 
+  utter_visualizations_warning2:
+  - text: |
+      There are plenty more tips for visualizations but in general: just be careful. It's easy to make things appear in a certain light in a plot. Therefore, create your plots as neutral as you can and double check visualizations from others.
+
+      Let me know when you want to proceed.
+  utter_analysis_position:
+  - text: |-
+      I assume you have done the cleanup? Only proceed with the clean part of your data in the analyis, otherwise your results might be skewed. 
+
+      Okay, let's go. Here's some ideas how you can start: Irrespectively of your research question it's a good idea to start with some descriptive statistics. 
+      Descriptive statistics? 
+      Descriptive statistics has the aim to summarize a sample: This means you calculate values that report key features of your data such as the overall sample size, location parameters, measures of dispersion etc.
+  utter_analysis_position2:
+  - text: |-
+      For quantitative data the classic location parameters are mean and median. They both try to summarize data into one typical value. It's wise to calculate both! If they're very different it's normally a good idea to use the median value rather than the mean value, as the mean is very susceptible to outliers.
+      How much the data varies around these averages is calculated with measures of dispersion such as the variance and the standard deviation.
+  utter_analysis_position3:
+  - text: |-
+      If you have categorial data you can't calculate mean or median, but you could calculate the frequency or the proportion of the categorial groups. Frequencies (= counting how many) are easy to imagine, but proportions (= counting what proportion of the total) are more robust if you interpret and compare them. 
+
+      Do you need help in calculating the descriptive parameters for quantitative data?
+  utter_analysis_position_help:
+  - text: |-
+      Help is on its way! Checkout these links:
+      - calculating mean and median in excel: https://www.youtube.com/watch?v=6dw3KNn0dYw 
+      - calculating variance in excel: https://www.youtube.com/watch?v=JDkHrxFmUyg 
+
+      Let me know when you want to proceed.
+  utter_b_pp_3:
+  - text: |-
+      Calculating descriptive statistics, is a good starting point, but the next analysis steps depend on your specific research question. 
+
+      If you want to investigate two or more variables you could be interested in:
+            - Relationships between variables (Correlations, Independence)
+            - Finding groups in the variables (Clustering)
+            - Prediction models
+      Most of these analysis require a sound statistical knowledge and are thus difficult for beginners.
+  utter_b_pp_3_2:
+  - text: |-
+      I have two options for you: If you want to start easier and get a first impression I could give you a hands-on method or if you are eager to approach a profound statistical test I could point you to the correct approach. 
+
+      What would you like?
+  utter_b_pp_4:
+  - image: https://www.dropbox.com/s/w7oyetys7toailw/flowchart-for-choosing-a-statistical-test.png?dl=0
+    text: |
+      Looking for the proper method approach? This overview might help and get you the right key words you can use for further research. (source scribbr)
+
+      Let me know when you want to proceed.
+  utter_analysis_hands_on:
+  - image: https://www.dropbox.com/s/vmrkdp8spj1vc3m/ct.PNG?dl=0
+    text: |-
+      In the beginning, it is helpful to get a feel for how the different variables relate to each other.
+      For this you could use a cross table. Look at this example:
+  utter_analysis_hands_on2:
+  - text: |-
+      The table shows how the variables gender and product relate to each other by contrasting how many male vs how many female customers have bought product A vs product B. 
+      Cross tables can depict absolute or relative values for the observation and are a good starting point for a discussion and further analysis.
+  utter_analysis_hands_on3:
+  - text: |-
+      Hint: For a cross table you need categorial features, but if you have quantitative data  you can still use a cross table by categorizing your observations:
+      An example: Age (quantitative) divided into categories  [0,20] [21,40] [41,60] [61,-]
+      The size and amount of classes you chose highly impacts your result, keep that in mind before jumping to conclusions. 
+
+      Let me know when you want to proceed.
+  utter_interpretation:
+  - text: |
+      To find statistically sound clusters, models or to prove independence or a correlation, statisticians proceed according to a certain scheme that in the end gives them a result and a probability with which their prediction is correct.
+      An important term in that discussion is the p-value.
+
+      Methods such as cross-tables can only give you an assumption about the relation of variables, however it is not a statistical proof e.g. for a correlation. 
+      The so gained assumptions are good starting points to further look into them yourself, or discuss them with other researchers.
+  utter_ask_question_form_question:
+  - text: Ok. Please formulate your question as clearly as possible for the researcher to understand.
+  utter_ask_question_form_email:
+  - text: Please enter the email address you want the answer to be send to.
+  utter_please_ask:
+  - text: Please ask your question.
+  utter_no_question:
+  - text: Ok, you don't want your question to be submitted.
+  utter_form:
+  - text: I don't have an answer to that question, maybe you'll find an answer while doing a data analysis? I help you through that with my "Start DA process"-function. If not, I can forward your request to the researcher, supervising the research project. Do you want me to do that?
+  utter_variance:
+  - text: |
+      The variance is a measure of dispersion and measures how much a sample varies around its mean. 
+      More specifically it's the average squared distance from every observation to the mean. The square root of the variance is the standard deviation.
+
+      You can find more info here: https://www.youtube.com/watch?v=JDkHrxFmUyg
+  utter_binary:
+  - text: |
+      A binary variable is a variable that only takes two values.
+      An example might be the variable Smoker (yes/ no), Test outcome (Positive/ Negative).
+
+      Often a binary variable is encoded with 0 and 1.
+  utter_bye:
+  - text: Bye, until next time!
+  utter_next_step:
+  - text: One step done - let's proceed!
+  utter_fall_back:
+  - text: |
+      I'm sorry - I am steadily learning but I am just a simple data bot. 
+      I can not understand or answer all your requests. Please rephrase or ask me to go back to the menue to start over.
+  utter_you're_welcome:
+  - text: Glad you like it. You're welcome!
+  utter_titanic:
+  - text: |-
+      The titanic was a British passenger liner, which sank in the North Atlantic Ocean on 15 April 1912 after striking an iceberg during her maiden voyage from Southampton, UK, to New York City. 
+      You can find out more about the passengers on the ship, looking at the dataset you got :) With my "Start Da process" function, I help you to make sense out of the dataset.
+  utter_mean:
+  - text: |-
+      For a data set, the arithmetic mean, also known as arithmetic average, is a central value of a finite set of numbers: specifically, the sum of the values divided by the number of values.
+
+      If you need help in calculating it, here is a good video for you: https://www.youtube.com/watch?v=6dw3KNn0dYw 
+
+      If you're interested in a typical value of a variable in a sample, sometimes it is wise to also calculate the median, as the mean is very susceptible to outliers.  
+  utter_median:
+  - text: |-
+      The median, also called central value is the value that lies exactly in the middle of a data distribution. It can represent a typical value of a variable in a sample. One half of all individual data is always smaller, the other larger than the median. With an even number of individual data, the median is half the sum of the two values lying in the middle.
+
+      If you need help in calculating it, here is a good video for you: https://www.youtube.com/watch?v=6dw3KNn0dYw
+  utter_observation:
+  - text: |
+      An observation in statistics is a value of something of interest you're measuring or counting during a study or experiment: a person's height, a bank account value at a certain point in time, or number of animals. 
+
+      It is a concrete instantiation of a variable in a sample. 
+  utter_variable:
+  - text: |
+      A variable is any characteristics, number, or quantity that can be measured or counted. A variable may also be called a data item. 
+      Age, sex, montly expenses, eye colour or vehicle type are examples of variables.
+
+      A variable is a holder for a representation of a value or category: A value for the variable age is "52", a category for the value eye colour is "green"
+
+      A certain value of a variable in a sample is an observation.
+  utter_explain_method_of_operation:
+  - text: |
+      I'm sorry, I'm only here to help you methodically how to do and what to look out for in a data analysis. 
+      I can't tell you details about the passengers on the titanic - this is something you need to find out yourself.
+      Maybe try to use the categories of my "Start DA Process" function? They contain many useful adivces.
+  utter_interpret_plots:
+  - text: |
+      Plots can convey very different impressions depending on how they are designed! If you create a plot yourself, or look at a plot from somebody else pay attention to a few things:
+
+        - Always label the axis correctly and add a legend in case you use a colour coding for other people to understand your plot. Plots in articles or the media missing these descriptions are probably not very trustworthy.
+        - The zero point of the image should always be at 0, otherwise the image will be very distorted. 
+        - Add the number of observations n contained in the plot e.g. in the heading. Imagine a pie chart - It's has a very different meaning if 50% of 500 people have a certain opinion or 50% of four people. 
+  utter_pie_chart:
+  - image: https://www.dropbox.com/s/16k23oo23ze58le/pie.png?dl=0
+    text: A pie chart is a graph in the form of a circle divided into sectors in which relative quantities are indicated by the proportionately different sizes of the sectors. Its helpful to visualize categorial data.
+  utter_scatter_plot:
+  - image: https://www.dropbox.com/s/xpnsydywq2f8cvi/scatterplot.png?dl=0
+    text: A scatter plot is a graph that uses dots to represent values for one or two different quantitative variables. The position of each dot on the horizontal and vertical axis indicates values for an individual data point.
+actions:
+- action_submit_questions
+- sleep_function
+- utter_analysis_position
+- utter_analysis_position2
+- utter_choose_mode
+- utter_cleanup
+- utter_cleanup2
+- utter_getting_started
+- utter_getting_started2
+- utter_getting_started3
+- utter_getting_started_hints
+- utter_greet
+- utter_menue_beginner
+- utter_next_step
+- action_reset_slot
+forms:
+  question_form:
+    required_slots:
+      email:
+      - intent: email
+        type: from_text
+      question:
+      - intent: other_questions
+        type: from_text
+e2e_actions: []

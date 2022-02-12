@@ -1,0 +1,605 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - heey
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hi
+    - hi bot
+    - hi there
+    - Hello
+    - hey whats up
+    - let's start
+    - Hi there
+    - hi friend
+    - HI Bot!
+    - Hi Bot!!
+    - Hi Bot
+    - Hi Chatbot!
+    - Hey
+    - Good evening!
+    - Good morning
+    - Good afternoon
+    - Hello bot?
+    - Let’s go
+    - hey there mr bot
+    - Hi bot
+    - what up
+- intent: Data_Analysis_Process
+  examples: |
+    - I want to start the Data Analyis Process
+    - Beginn DA
+    - start da proceed
+    - Start DA Process
+    - go to start da process
+- intent: Question&Answer
+  examples: |
+    - I want to ask a question
+    - Q&A
+    - Question
+    - Ask something
+    - /Question&Answer
+    - go to Q&A
+    - Q & a
+- intent: affirm
+  examples: |
+    - Yes
+    - I'm sure
+    - yep
+    - done
+    - proceed
+    - go on
+    - I want to proceed
+    - finished
+    - continue
+    - yes
+    - yes please
+    - okay
+    - I'm all set
+    - proceed please
+    - now
+    - proceeds
+    - Proceed
+    - Next
+    - Now
+    - go ahead
+    - carry on
+    - yes I'm interested
+    - next
+    - next please
+    - Finished
+    - Continue
+    - continue please
+    - Yes!
+    - thanks, proceed please
+    - I'm done
+    - :)
+    - I do
+    - Yes please
+    - Ok
+    - let’s proceed
+    - Indeed
+    - i’m finished
+    - done thanks
+    - Dobe
+    - Jep
+    - Yeeees
+    - Done
+    - I'm finished
+    - Jes
+    - yes, please
+    - Go
+    - Nex5
+    - Lets procced
+    - Done.
+    - Yep
+    - ok
+    - Done! Thanks
+    - We should continue
+- intent: deny
+  examples: |
+    - No
+    - I don't think so
+    - Naah
+    - None of the above
+    - None
+    - Neither of them
+    - no thanks
+    - no please
+    - no
+    - no i don't need help
+    - no thank you
+    - I don't want to proceed
+    - none
+    - no I don't
+    - no i don’t want to
+    - no i don’t need help
+    - no I know how to do that
+    - none of the above
+    - I don't
+- intent: getting_started_beginner
+  examples: |
+    - Getting started
+    - I want basic information
+    - get started
+    - getting started
+    - what is an ID
+    - what can I use an ID for?
+    - Explain ID
+    - what can I use the variable Passenger ID for?
+    - Passenger id
+    - What can I use The Passenger ID for?
+- intent: cleanup_beginner
+  examples: |
+    - Start with cleanup
+    - cleanup
+    - no, go to cleanup
+    - take me to cleanup
+    - please go to cleanup
+    - what does data cleansing mean?
+    - what is cleanup
+    - i want to clean my data
+    - how do a data cleaning?
+    - Data cleanup
+- intent: visualization_beginner
+  examples: |
+    - I want to start with visualizations
+    - visualizations
+    - plots
+    - I want to learn about plots
+    - take me to visualizations please
+    - go to visualizations
+    - What Plot Typen
+    - Plot types
+    - Which plot type do I choose for the variable gender?
+    - How do I plot gender?
+    - what are different plot types?
+    - how do i choose a plot type?
+    - Plot
+    - How can I plot the variable age
+    - How to plot inteeger variable
+    - How to plot the variable age
+    - show me a plot methos
+    - plot
+    - Plot type of variable
+    - You want to plot the variable age. What plot type do you choose?
+- intent: analysis_beginner
+  examples: |
+    - I want to start analysis
+    - Tell me something about analyzing data
+    - analysing data
+    - How do I analyze data
+    - analysis
+    - I want to do an analysis
+    - go to the analysis part
+    - go to analysis
+    - How can i analyse data
+- intent: restart
+  examples: |
+    - restart
+    - please restart
+    - start over
+    - Restart
+- intent: more_info
+  examples: |
+    - I want more information
+    - more info
+    - tell me more
+    - Learn more
+    - I need more help
+    - yes I need help
+    - help
+    - help me
+    - I Need More help
+    - I need more help please
+    - i need more help!
+    - I need more help!
+    - Help
+    - I want to know more
+    - yes more help please
+- intent: variable_types
+  examples: |
+    - help me with the variable types
+    - i need more help with the variable types
+    - What type of variables are there?
+    - What type of variable is the Passengerclass variable?
+    - variable type
+    - what are different variable types?
+    - what is a variable type?
+    - tell me about the variable types
+    - how can i find the type of a variable?
+    - Variable types
+    - Variable type
+    - Types of variables
+    - what type of variables are there?
+    - What type of variable is the passenger class?
+    - What type of variable is the passenger class
+    - variable types
+    - need help with variable types
+- intent: bye
+  examples: |
+    - bye
+    - ciao
+    - goodbye
+    - I want to stop
+    - End the session
+    - I have enough
+    - bye bot
+    - bye bot!
+    - byeeeee
+    - Bye Bye
+- intent: first
+  examples: |
+    - the first one
+    - the former
+    - the first one please
+    - first
+- intent: hands-on
+  examples: |
+    - easier ones
+    - the easy one
+    - hands on methods
+    - methods
+    - easier
+    - hands on
+    - Hands on method
+    - First hands on methods
+    - i want to get a first impression
+    - Hands-on methods
+    - Start easier
+    - hands-on
+    - a hands-on method
+    - hands-on method
+- intent: second
+  examples: |
+    - the second one
+    - the latter
+    - the latter please
+    - Second
+    - second one
+- intent: statistical_test
+  examples: |
+    - statistical tests
+    - two variables
+    - profound approach
+    - intense test
+    - profound
+    - Method of statistic test
+    - What method could I use to check statistically correctly whether the variables Age, Gender, Class and Probability of Survival are related?
+    - sound tests
+    - how to check if the variables are related
+    - What is a statistical test?
+    - Tell me about statistical tests please
+    - where can i learn more about tests?
+    - profound test
+    - what method can i use to statistically test something?
+    - Statistical test
+    - Profound statistical test
+    - Relationships
+    - Relationships between variables
+    - statistical test
+    - Predicton models
+    - point me
+    - eager
+    - What method could you use to statistically test whether the variable age (predictor) has an effect on the probability of survival?
+    - Test
+    - test
+    - What method could you use to statistically test whether the variable age has an effect on the probability of survival
+    - correct approach
+    - profound statistic approach
+    - What method could you use to statistically test whether the variable age has an effect on the probability of survival?
+    - predictor
+    - Statictic method
+    - Correct approach
+- intent: back_to_menue
+  examples: |
+    - go back
+    - Return to menue
+    - I want to go back
+    - Take me to the menue
+    - menue
+    - menu
+    - home
+    - start screen
+    - menü
+    - nothing i want to go back
+    - back
+    - take me to the menue
+    - go back to the menue please
+- intent: other
+  examples: |
+    - I want Pizza
+    - Who are you?
+    - How are you?
+    - What's the weather?
+    - What is this experiment?
+    - Where are we?
+    - I am hungry.
+    - I am tired.
+    - blablabla
+    - iadwadwep
+    - jwajedwjew
+    - where is the pizza
+    - where are you from
+    - where are the peanuts?
+    - where are you from?
+    - blablas
+    - kwoöekfn
+    - bskflsonf g
+    - what researcher?
+    - where is the pizza?
+    - jain w diskus
+    - how are you
+    - you can’t stop me
+    - where is the next airport?
+    - Why is this happening?
+    - What is life?
+    - 15 task
+    - How to do 15th task
+    - Sho
+    - .
+- intent: variance
+  examples: |
+    - What is the variance
+    - What calculates the variance
+    - What does the variance do
+    - Variance whats that?
+    - Variance?
+    - Variance measure
+    - Variance
+    - variance
+    - What does the variance measure?
+    - What does the variance measure
+    - Calculating the variance
+- intent: categorial
+  examples: |
+    - What is a categorial variable
+    - is this a categorial variable
+    - can you give me an example of a categorial variable
+    - 1 categorial variable
+- intent: binary
+  examples: |
+    - what is a binary variable
+    - what does binary mean
+    - what is a binary variable?
+    - what does binary mean?
+    - Binary variable
+    - binary variable
+    - What is a binary variable?
+    - What is Binary Variable
+    - What is a binary variable
+    - Binary variable definiti in
+- intent: quantative
+  examples: |
+    - what is a quantiative variable
+    - is this a quantitative variable
+    - what is a metric variable
+    - what does quantative mean
+    - descriptive
+- intent: other_questions
+  examples: |
+    - what is
+    - how can I
+    - where can I
+    - why do
+    - How can I do a regression analysis?
+    - What is a good visualization for 3D data?
+    - Why is correlation and causality not the same?
+    - How can I calculate
+    - I want to do
+    - Where can I find more information about heat maps?
+    - where can I find more information on heat maps?
+    - where can i find information on heat maps?
+    - what do you know about this task?
+    - what is this?
+    - I don't understand what outliers are?
+    - where can I find more information on the variable gender?
+    - I don't understand
+    - why
+    - what is a banana?
+    - no, but for qualitative data
+    - how do I create it?
+    - tell me about heat maps
+    - how do i do machine learning?
+    - what is a modell?
+    - how to do a 3D modell?
+    - what is a neutron?
+    - how do i calculate this in excel?
+    - What is a box plot?
+    - What is a quantil?
+    - What is Histogram chart?
+    - Calculating modus
+    - What is a mode calc
+    - Mode definition
+    - Which figure should i calculate
+    - Modus
+- intent: email
+  examples: |
+    - @gmx.de
+    - @hotmail.de
+    - @googlemail.de
+    - @web.de
+    - .net
+    - .com
+    - .edu
+    - .org
+    - carolin@web.de
+    - lola.ulm@kit.edu
+    - hanna123@hotmail.com
+    - line@tu-berlin.de
+    - Ester@4Steins.net
+    - gloria@sadj.tu
+    - young@ppt.com
+    - yannik.rust1@gmail.com
+- intent: stop
+  examples: |
+    - stop
+    - undo
+    - I don't want to submit the form
+    - I don't want that
+    - I changed my mind
+    - i don’t want this
+    - Stop
+- intent: Thanks
+  examples: |
+    - thank you
+    - thanks
+    - nice, thank you
+    - nice thanks
+    - cool
+    - ok thanks
+    - I'm done thanks
+    - Thank you so much, that’s awesome!
+    - That's okay. Thank you for the assistance
+    - nice
+    - Nice
+- intent: titanic
+  examples: |
+    - What happened to the titanic?
+    - What do you know about the titanic?
+    - What passengers have been on the titanic?
+    - What is the titanic?
+    - Why did the titanic sink?
+    - what do you know about the titanic
+- intent: mean
+  examples: |
+    - How can I calculate a mean?
+    - what is a mean?
+    - what is the mean of age?
+    - what is the mean of the ticket price?
+    - what is meant by mean?
+    - How can I calculate a mean in excel?
+    - How can I find the mean cost for a ticket
+    - What was the average price passengers paid for a ticket?
+    - How do I calculate the average?
+    - how can I find the mean cost for a ticket?
+    - What is the AVG?
+    - What is averag
+    - Calculating the mean
+    - Calculating mean
+    - Mean
+- intent: median
+  examples: |
+    - what is a median?
+    - how can I calculate a median?
+    - what is the median of the ticket price?
+    - What is the median and why do I need it?
+    - How can I check the median
+    - What is a median?
+- intent: observation
+  examples: |
+    - What is an observation?
+    - What do you mean by observation?
+    - Do you have an example for an observation?
+    - is this an observation?
+    - what is an observation?
+    - what is a observation?
+    - Conspicuous observations
+- intent: variable
+  examples: |
+    - What is a variable?
+    - variable?
+    - What is meant by variable?
+    - What does the word variable mean?
+    - what is a variable?
+    - What is a variable
+    - what does variable mean?
+    - Explain variables
+    - explain variables
+    - What are variables?
+    - Where are variables
+- intent: dataset_questions
+  examples: |
+    - How many passengers in class 3
+    - How many women have survived
+    - How many passengers survived as female
+    - How many passengers  in class 3
+    - how many passengers in class 3?
+    - how many passengers in class 3
+    - Number of variables
+    - How many variables are there
+    - Dataset overview
+    - number of variables
+    - how many variables are there?
+    - How many variables are in the data set
+- intent: interpreting_plots
+  examples: |
+    - Interpretation of plots
+    - Interpreting Plots
+    - What should one look for when interpreting plots?
+    - what should i look for in plots?
+    - what to look out for in plots
+    - no, what to look out for in plots
+    - I want to learn about what to look out for in plots
+    - what to look out for
+    - What to look out for
+    - what to look out for?
+    - Look out for
+    - what to look out
+    - What should i look for when interpreting plots
+    - Interpreting plots methods
+    - Types of methods for interpreting plots
+    - What should I look for when I interpret plots
+    - We should continue with what to look out for in plots
+    - What should you look for when interpreting plots?
+- intent: pie_chart
+  examples: |
+    - what is a pie chart
+    - what does pie chart mean
+    - pie chart
+    - what is a pie plot?
+- intent: scatter_plot
+  examples: |
+    - What is a scatter plot
+    - what does scatter plot mean
+    - scatter plot?
+    - i‘m interested in a scatter plot
+    - scatter plot
+- intent: influence
+  examples: |
+    - How do I check the influence of one variable on another?
+    - Influence of variables on each other
+    - expected influence
+    - calculation to check the influence of something on something
+    - influence
+    - what is the influence of this on this
+    - how do I check the influence of a variable on another?
+    - how do i check the influence of a variable on another?
+    - influence of a variable?
+    - influence of one variable on another?
+    - how do i check for an influence?
+    - What influence would you expect the variable Gender to have on the variable Survived
+    - Influence of The variable Gender in The variable survival
+- intent: typical_price
+  examples: |
+    - check what a ticket typically costs?
+    - how can I find out a typical ticket price?
+    - How do I calculate a typical value for a variable
+    - what does a ticket topically cost?
+    - how much did a ticket typically cost?
+    - How to calculate price of ticket
+- intent: plotting_two_variables
+  examples: |
+    - plot two variables
+    - plotting two variables
+    - plot variables against each other
+    - Plotting two
+    - Plotting two variables
+    - Two variables
+- intent: start
+  examples: |
+    - start
+    - /start
+    - Start
