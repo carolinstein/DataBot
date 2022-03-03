@@ -17,6 +17,6 @@ It is based on the Rasa open source framework.
 6. When running for the first time, run ```rasa train``` 
 7. Run ```rasa run actions```  to start Rasa Action Server 
 8. Run ```ngrok http 5005```  to open Ngrok tunnel 
-9. Insert https link provided by Ngrok into the credentials file as https://<link>.ngrok.io/webhooks/telegram/webhook 
+9. Insert https link provided by Ngrok into the credentials file as https://<```link```>.ngrok.io/webhooks/telegram/webhook 
 10. Run either ```rasa run```  or ```rasa x```  
 11. Find the chatbot on Telegram under DataBot or  @DataLiteracyBot and chat
