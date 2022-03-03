@@ -9,7 +9,7 @@ It is based on the Rasa open source framework.
 
 ### Communicate with bot directly
 3. When running for the first time, run ```rasa train'''
-4. Run ```rasa run actions''' to start Rasa Action Server 
+4. Run ``rasa run actions'' to start Rasa Action Server 
 5. Run either ```rasa shell''' or ```rasa x''' to communicate with the bot via the terminal or via the RasaX Web Interface
    
 
