@@ -21,9 +21,9 @@ from rasa_sdk.events import SlotSet
 
 load_dotenv()
 
-API_key ='keyLFA5lIHL937joL'
+API_key =''
 table_name='Table%201'
-Base_ID = 'appa1Hc5WRSKLcrzu'
+Base_ID = ''
 
 
 def question_sheet(Qu, Em):
