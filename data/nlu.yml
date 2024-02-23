@@ -439,10 +439,8 @@ nlu:
     - lola.ulm@kit.edu
     - hanna123@hotmail.com
     - line@tu-berlin.de
-    - Ester@4Steins.net
     - gloria@sadj.tu
     - young@ppt.com
-    - yannik.rust1@gmail.com
 - intent: stop
   examples: |
     - stop
