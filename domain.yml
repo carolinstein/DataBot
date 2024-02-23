@@ -147,8 +147,8 @@ responses:
 
       Let me know when you want to proceed.
   utter_getting_started_more_help:
-  - image: https://www.dropbox.com/s/z5oz4dgpg03nemp/Bildschirmfoto%202021-11-07%20um%2013.47.23.png?dl=0
-    text: This picture presents a good overview about the different types of variables. (source towardsdatascience)
+  - image: Picture_URL
+    text: This picture presents a good overview about the different types of variables. 
   utter_getting_started_hints:
   - text: |
       I assume you have looked at the dataset?  
